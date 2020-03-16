@@ -8,5 +8,5 @@ class Config(object):
     LOG_FILE = 'prombot.log'
 
     # Telegram bot config
-    TELEGRAM_BOT_TOKEN = "1110478838:AAGZVZaDmjUPffFTIxpgLVIKI5r7yg5h_8g"
-    TELEGRAM_BOT_CHAT_ID = "-489291168"
+    TELEGRAM_BOT_TOKEN = "XXXX"
+    TELEGRAM_BOT_CHAT_ID = "-XXXX"
