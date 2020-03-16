@@ -2,9 +2,19 @@
 
 ## Description
 
-Converts alerts sent by prometheus to text message and send them to a telegram bot
+Converts alerts sent by prometheus to text message and send them to a telegram
 
-## Installation
+Example message:
+
+```
+{config.MESSAGE_PREFIX} firing: <alert 1 summary>, <alert 2 summary>
+
+firing(link to alert): <alert 1 description>
+firing(link to alert): <alert 2 description>
+```
+
+
+## Local Installation
 
 ```sh
 virtualenv pyvenv
@@ -14,6 +24,7 @@ pip install .
 pyvenv/bin/prombot
 ```
 
+Configure config.py, especially the telegram bot part
 ## Docker
 
 ### Build
@@ -24,12 +35,21 @@ docker build -t prombot .
 
 ### Run
 
+Create a local copy and configure config.py (i.e. in /home/docker/config.py), especially the telegram bot part.
+
 ```sh
-docker run -p 9087:9087 prombot -v /opt/config.py:/prombot/config.py
+docker pull vche/prombot
+docker run -p 9087:9087 -v /home/docker/config.py:/prombot/config.py prombot
 ```
 
 ### Docker compose
 
-```sh
-docker run -p 9087:9087 prombot -v /opt/config.py:/prombot/config.py
+```yaml
+  prombot:
+    container_name: prombot
+    image: vche/prombot
+    ports:
+      - 9087:9087
+    volumes:
+      - /home/docker/config.py:/prombot/config.py
 ```
