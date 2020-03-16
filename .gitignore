@@ -1,0 +1,11 @@
+MANIFEST
+docs/_build
+build
+dist
+env
+*.egg-info
+*.pyc
+*.pyo
+*.so
+pyenv
+prombot/_version.py
